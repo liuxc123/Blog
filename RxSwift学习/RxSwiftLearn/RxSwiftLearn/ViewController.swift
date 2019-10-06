@@ -22,7 +22,6 @@ class ViewController: UIViewController {
 
     func setupBasicAction() {
 
-
         let ob = Observable<Any>.create { (observer) -> Disposable in
             observer.onNext("RxSwift框架")
             observer.onCompleted()
@@ -39,6 +38,28 @@ class ViewController: UIViewController {
             print("销毁")
         })
         .disposed(by: disposeBag)
+    }
+
+    func setupTimerAction() {
+
+        /// Timer
+//        let timer = Timer(timeInterval: 1, target: self, selector: #selector(timerFire), userInfo: nil, repeats: true)
+//        RunLoop.current.add(timer, forMode: .common)
+
+        /// GCD
+//        let gcdTimer = DispatchSource.makeTimerSource()
+//        gcdTimer.schedule(deadline: DispatchTime.now(), repeating: DispatchTimeInterval.seconds(1))
+//        gcdTimer.setEventHandler {
+//            print("GCD")
+//        }
+//        gcdTimer.resume()
+
+        ///
+        Observable<Int>.timer(1, scheduler: MainScheduler.instance)
+    }
+
+    @objc func timerFire() {
+        print("time fire")
     }
 
 }
