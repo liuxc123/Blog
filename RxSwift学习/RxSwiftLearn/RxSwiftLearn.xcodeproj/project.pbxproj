@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -42,6 +42,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		042B8AB12341C677009B5E3C /* Demos */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Demos;
+			sourceTree = "<group>";
+		};
 		04B5E167234198A000F7F7E5 = {
 			isa = PBXGroup;
 			children = (
@@ -63,6 +70,7 @@
 		04B5E172234198A000F7F7E5 /* RxSwiftLearn */ = {
 			isa = PBXGroup;
 			children = (
+				042B8AB12341C677009B5E3C /* Demos */,
 				04B5E173234198A000F7F7E5 /* AppDelegate.swift */,
 				04B5E175234198A000F7F7E5 /* SceneDelegate.swift */,
 				04B5E177234198A000F7F7E5 /* ViewController.swift */,
@@ -88,7 +96,6 @@
 				14729BF7E82E9BCCD8A97DCB /* Pods-RxSwiftLearn.debug.xcconfig */,
 				D55024F43B35CAD6AD84301B /* Pods-RxSwiftLearn.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
