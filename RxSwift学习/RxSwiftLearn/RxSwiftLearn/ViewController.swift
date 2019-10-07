@@ -16,7 +16,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupBasicAction()
+        setupTimerAction()
 
     }
 
@@ -27,6 +27,8 @@ class ViewController: UIViewController {
             observer.onCompleted()
             return Disposables.create()
         }
+        .map { $0 }
+        
 
         ob.subscribe(onNext: { (text) in
             print("订阅到：\(text)")
@@ -54,8 +56,15 @@ class ViewController: UIViewController {
 //        }
 //        gcdTimer.resume()
 
-        ///
-        Observable<Int>.timer(1, scheduler: MainScheduler.instance)
+        let textField = UITextField()
+        textField.frame = CGRect(x: 0, y: 100, width: self.view.bounds.size.width, height: 100)
+        view.addSubview(textField)
+
+
+//            .subscribe(onNext: { (text) in
+//            print(text ?? "")
+//        })
+//        .disposed(by: disposeBag)
     }
 
     @objc func timerFire() {
