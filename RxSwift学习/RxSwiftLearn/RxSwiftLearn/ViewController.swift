@@ -16,8 +16,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTimerAction()
-
+        setupFlatMap()
     }
 
     func setupBasicAction() {
@@ -40,6 +39,28 @@ class ViewController: UIViewController {
             print("销毁")
         })
         .disposed(by: disposeBag)
+
+
+    }
+
+    func setupFlatMap() {
+        let first = BehaviorSubject(value: "👦🏻")
+        let second = BehaviorSubject(value: "🅰️")
+        let variable = BehaviorRelay(value: first)
+
+        variable.asObservable()
+            .flatMap { value in
+                return value
+            }
+            .subscribe(onNext: {
+                print($0)
+            })
+            .disposed(by: disposeBag)
+
+        first.onNext("🐱")
+        variable.accept(second)
+        second.onNext("🅱️")
+        first.onNext("🐶")
     }
 
     func setupTimerAction() {
@@ -56,15 +77,6 @@ class ViewController: UIViewController {
 //        }
 //        gcdTimer.resume()
 
-        let textField = UITextField()
-        textField.frame = CGRect(x: 0, y: 100, width: self.view.bounds.size.width, height: 100)
-        view.addSubview(textField)
-
-
-//            .subscribe(onNext: { (text) in
-//            print(text ?? "")
-//        })
-//        .disposed(by: disposeBag)
     }
 
     @objc func timerFire() {
